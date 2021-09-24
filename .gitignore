@@ -35,3 +35,4 @@ client/src/index.css
 client/src/logo.svg
 client/src/reportWebVitals.js
 node_modules
+npm-debug.log
