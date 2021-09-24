@@ -55,9 +55,9 @@ class WeatherForm extends Component {
         localStorage.setItem("WeatherHistory", JSON.stringify(this.props.history));
     }
 
-    // onChange = (e) => {
-    //     this.setState({[e.target.name]: e.target.value});
-    // }
+    onChange = (e) => {
+        this.setState({[e.target.name]: e.target.value});
+    }
 
     saveToMongo = (event) => {
         axios.post("/api/weatherMongo", {
