@@ -36,3 +36,4 @@ client/src/logo.svg
 client/src/reportWebVitals.js
 node_modules
 npm-debug.log
+.vscode/settings.json
