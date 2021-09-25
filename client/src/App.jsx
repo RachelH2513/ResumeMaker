@@ -1,15 +1,21 @@
 import { Component } from 'react';
 // import logo from './logo.svg';
 import './Stylesheets/App.scss';
-import Container from './Components/Container'
+// import Container from './Components/Container'
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+import BasicInfo from './Components/BasicInfo';
 
 
 class App extends Component{
   render() {
     return(
-      <div className='App'>
-        <Container/>
-      </div>
+      // 
+      <Router>
+        <div>
+          <Route exact path='/' component={BasicInfo} />
+        </div>
+      </Router>
     )
   }
 }

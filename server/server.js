@@ -13,8 +13,11 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded())
 
 // Use API routes from the api folder
-const apis = require("./api");
+const apis = require("./api/weather_index");
 app.use("/api", apis);
+
+const basicinfo = require('./api/basicinfo');
+app.use('/basicinfo', basicinfo)
 
 const path = require('path');
 
