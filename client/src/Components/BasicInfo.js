@@ -17,13 +17,30 @@ class BasicInfo extends Component {
     };
   }
 
+  componentDidMount(){
+    axios
+        .get('/basicinfo')
+        .then(res => {
+            this.setState({
+                firstname: res.data.firstname,
+                lastname: res.data.lastname,
+                phone: res.data.phone,
+                address: res.data.address,
+                email: res.data.email
+            })
+        })
+        .catch(err => {
+            console.log('Error from getting basic info');
+        })
+  }
+
   onSubmit = e => {
       e.preventDefault();
 
       const data = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
-        phone: this.state.lastnphoneame,
+        phone: this.state.phone,
         address: this.state.address,
         email: this.state.email
       }
@@ -122,7 +139,7 @@ class BasicInfo extends Component {
                             // className="btn btn-outline-warning btn-block mt-4"
                             className='btn btn-outline-info btn-lg btn-block'
                         />
-                        <p>
+                        <p className='msg'>
                             {this.state.msg}
                         </p>
                     </form>

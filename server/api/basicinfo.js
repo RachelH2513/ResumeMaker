@@ -11,4 +11,12 @@ router.post('/', async (req, res) => {
         .catch(() => res.status(400).json({error: 'Failed..'}));
 })
 
+router.get('/', async (req, res) => {
+    basicinfo_mdl.findOne()
+        .then(basicinfo => res.json(basicinfo))
+        .catch(err => {
+            console.log('Error from getting basic info')
+        })
+})
+
 module.exports = router;

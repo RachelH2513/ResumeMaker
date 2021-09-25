@@ -20,7 +20,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Header />
+    {/* <Header /> */}
     <App />
   </Provider>,
   document.getElementById('root')
