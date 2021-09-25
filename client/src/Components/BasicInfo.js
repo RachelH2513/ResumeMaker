@@ -143,6 +143,9 @@ class BasicInfo extends Component {
                             {this.state.msg}
                         </p>
                     </form>
+                    <Link to='/experience' className='btn btn-outline-warning float-left' style={{'font-weight':'bold','color':'black'}}>
+                        Next: Experience
+                    </Link>
                 </div>
             </div>
         </div>

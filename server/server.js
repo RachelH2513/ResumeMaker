@@ -19,6 +19,9 @@ app.use("/api", apis);
 const basicinfo = require('./api/basicinfo');
 app.use('/basicinfo', basicinfo)
 
+const experience = require('./api/experience');
+app.use('/experience', experience)
+
 const path = require('path');
 
 // If in production, then use static frontend build files.
