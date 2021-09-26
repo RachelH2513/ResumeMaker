@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { instanceOf } from 'prop-types';
+import { data } from "./ResumeContent"
 
 class BasicInfo extends Component {
   constructor() {
@@ -28,6 +28,8 @@ class BasicInfo extends Component {
                 address: res.data.address,
                 email: res.data.email
             })
+            data.basicinfo.push(res.data)
+            console.log(data.basicinfo)
         })
         .catch(err => {
             console.log('Error from getting basic info');
@@ -143,7 +145,7 @@ class BasicInfo extends Component {
                             {this.state.msg}
                         </p>
                     </form>
-                    <Link to='/experience' className='btn btn-outline-warning float-left' style={{'font-weight':'bold','color':'black'}}>
+                    <Link to='/experience' className='btn btn-outline-warning float-left' style={{'fontWeight':'bold','color':'black'}}>
                         Next: Experience
                     </Link>
                 </div>

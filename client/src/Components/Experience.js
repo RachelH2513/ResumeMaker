@@ -7,7 +7,7 @@ class Experience extends Component {
     constructor() {
         super();
         this.state = {
-            
+
             company: '',
             position: '',
             from: '',
@@ -70,6 +70,8 @@ class Experience extends Component {
                 console.log('Error from Experience');
             })
     }
+
+    onClick = () => this.props.history.push('/preview')
 
     render() {
         const experiences = this.state.experiences;
@@ -180,7 +182,9 @@ class Experience extends Component {
                     <div>
                         {experiencesList}
                     </div>
-
+                    <div className='card-container'>
+                        <button type="button" onClick={this.onClick}>Create Resume</button>
+                    </div>
                 </div>
             </div>
         )

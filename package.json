@@ -11,7 +11,8 @@
     "server": "nodemon server/server.js",
     "client": "cd client && npm run start",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "cd client/src && npm install && npm run build"
+    "heroku-postbuild": "cd client/src && npm install && npm run build",
+    "dev2": "npm run server & npm run client"
   },
   "keywords": [],
   "author": "",

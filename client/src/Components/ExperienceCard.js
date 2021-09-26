@@ -13,7 +13,7 @@ const ExperienceCard = (props) => {
             data.experiences.push(experience);
             setChecked(true);
         } else {
-            let i = data.experiences.findIndex(x => x._id == experience._id);
+            let i = data.experiences.findIndex(x => x._id === experience._id);
             if (i !== -1) {
                 data.experiences.splice(i, 1);
             }
@@ -26,13 +26,13 @@ const ExperienceCard = (props) => {
         <div className="card-container" style={{marginBottom:'1em'}}>
             <div style={{display: 'flex', alignItems:'center'}}>
                 <input type="checkbox" name="experience" checked={checked} onChange={onChange}/>
-                <label for="experience" style={{'fontSize':'medium','font-weight':'bold', marginBottom:'0'}}>
+                <label htmlFor="experience" style={{'fontSize':'medium','fontWeight':'bold', marginBottom:'0'}}>
                     {/* <pre class="tab"> */}
                     &emsp;{experience.company}&emsp;|&emsp;{experience.position}
                     {/* </pre> */}
                     </label>
                     {/* <br/> */}
-                <span style={{marginLeft:'auto', 'font-weight':'bold'}}>
+                <span style={{marginLeft:'auto', 'fontWeight':'bold'}}>
                     {moment(experience.from).format("MMM YY")}&nbsp;-&nbsp;{moment(experience.to).format("MMM YY")}&emsp;{experience.location}
                 </span>
             </div>
