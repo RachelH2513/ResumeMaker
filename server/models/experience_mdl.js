@@ -5,6 +5,7 @@ const ExperienceSchema = new mongoose.Schema({
     position: String,
     from: String,
     to: String,
+    location: String,
     desc: String
 });
 

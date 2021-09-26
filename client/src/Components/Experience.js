@@ -1,18 +1,38 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import '../App.css';
+import ExperienceCard from './ExperienceCard';
 
 class Experience extends Component {
     constructor() {
         super();
         this.state = {
+            
             company: '',
             position: '',
             from: '',
             to: '',
+            location:'',
             desc: '',
-            msg: ''
+            msg: '',
+            experiences: []
         };
+    }
+    componentDidMount() {
+        this.refresh();
+    }
+
+    refresh = () => {
+        axios
+            .get('/experience')
+            .then(res => {
+                this.setState({
+                    experiences: res.data
+                })
+            })
+            .catch(err => {
+                console.log('Error from getting experiences');
+            })
     }
 
     onChange = e => {
@@ -27,6 +47,7 @@ class Experience extends Component {
             position: this.state.position,
             from: this.state.from,
             to: this.state.to,
+            location:this.state.location,
             desc: this.state.desc
         }
 
@@ -34,15 +55,35 @@ class Experience extends Component {
             .post('/experience', data)
             .then(res => {
                 this.setState({
-                    msg: res.data.msg
+                    msg: res.data.msg,
+                    // Clear all the fields
+                    company: '',
+                    position: '',
+                    from: '',
+                    to: '',
+                    location:'',
+                    desc: ''
                 })
             })
+            .then(() => this.refresh())
             .catch(err => {
                 console.log('Error from Experience');
             })
     }
 
     render() {
+        const experiences = this.state.experiences;
+        // console.log("PrintBook: " + books);
+        let experiencesList;
+
+        if(!experiences) {
+            experiencesList = "There is no experience added yet!";
+        } else {
+            experiencesList = experiences.map((experience, k) =>
+            <ExperienceCard experience={experience} key={k} />
+        );
+        }
+
         return (
             <div className='Experience'>
                 <div className='container'>
@@ -71,7 +112,7 @@ class Experience extends Component {
                                         type='text'
                                         name='position'
                                         placeholder='Job Title'
-                                        value={this.state.postion}
+                                        value={this.state.position}
                                         onChange={this.onChange}
                                     />
                                 </div>
@@ -101,13 +142,24 @@ class Experience extends Component {
                                 </div>
 
                                 <div className='form-group'>
+                                    <input 
+                                        className='form-control'
+                                        type='text'
+                                        name='location'
+                                        placeholder='Location'
+                                        value={this.state.location}
+                                        onChange={this.onChange}
+                                    />
+                                </div>
+
+                                <div className='form-group'>
                                     <textarea 
                                         className='form-control rounded-0'
                                         // type='textarea'
                                         rows='4'
                                         name='desc'
                                         placeholder='Description/Responsibility'
-                                        value={this.state.postion}
+                                        value={this.state.desc}
                                         onChange={this.onChange}
                                     />
                                 </div>
@@ -123,6 +175,12 @@ class Experience extends Component {
                             </form>
                         </div>
                     </div>
+
+                    {/* <div className="list"> */}
+                    <div>
+                        {experiencesList}
+                    </div>
+
                 </div>
             </div>
         )
