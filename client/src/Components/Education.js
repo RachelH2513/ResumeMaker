@@ -1,23 +1,22 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import '../App.css';
-import ExperienceCard from './ExperienceCard';
+import EducationCard from './EducationCard';
 
 import { Link } from 'react-router-dom';
 
-class Experience extends Component {
+class Education extends Component {
     constructor() {
         super();
         this.state = {
-
-            company: '',
-            position: '',
-            from: '',
-            to: '',
-            location:'',
-            desc: '',
+            school: '',
+            degree: '',
+            graduationYr: '',
+            major:'',
+            location: '',
+            GPA: '',
             msg: '',
-            experiences: []
+            educations: []
         };
     }
     componentDidMount() {
@@ -26,14 +25,14 @@ class Experience extends Component {
 
     refresh = () => {
         axios
-            .get('/experience')
+            .get('/education')
             .then(res => {
                 this.setState({
-                    experiences: res.data
+                    educations: res.data
                 })
             })
             .catch(err => {
-                console.log('Error from getting experiences');
+                console.log('Error from getting educations');
             })
     }
 
@@ -45,57 +44,57 @@ class Experience extends Component {
         e.preventDefault();
 
         const data = {
-            company: this.state.company,
-            position: this.state.position,
-            from: this.state.from,
-            to: this.state.to,
+            school: this.state.school,
+            degree: this.state.degree,
+            graduationYr: this.state.graduationYr,
+            major: this.state.major,
             location:this.state.location,
-            desc: this.state.desc
+            GPA: this.state.GPA
         }
 
         axios
-            .post('/experience', data)
+            .post('/education', data)
             .then(res => {
                 this.setState({
                     msg: res.data.msg,
                     // Clear all the fields
-                    company: '',
-                    position: '',
-                    from: '',
-                    to: '',
+                    school: '',
+                    degree: '',
+                    graduationYr: '',
+                    major: '',
                     location:'',
-                    desc: ''
+                    GPA: ''
                 })
             })
             .then(() => this.refresh())
             .catch(err => {
-                console.log('Error from Experience');
+                console.log('Error from Education');
             })
     }
 
     onClick = () => this.props.history.push('/preview')
 
     render() {
-        const experiences = this.state.experiences;
+        const educations = this.state.educations;
         // console.log("PrintBook: " + books);
-        let experiencesList;
+        let educationsList;
 
-        if(!experiences) {
-            experiencesList = "There is no experience added yet!";
+        if(!educations) {
+            educationsList = "There is no education added yet!";
         } else {
-            experiencesList = experiences.map((experience, k) =>
-            <ExperienceCard experience={experience} key={k} />
+            educationsList = educations.map((education, k) =>
+            <EducationCard education={education} key={k} />
         );
         }
 
         return (
-            <div className='Experience'>
+            <div className='Education'>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-8 m-auto'>
-                            <h1 className="display-4 text-center">Experience</h1>
+                            <h1 className="display-4 text-center">Education</h1>
                             <p className="lead text-center">
-                            Add New Experience Or Choose From List
+                            Add New Education Or Choose From List
                             </p>
 
                             <form noValidate onSubmit={this.onSubmit}>
@@ -103,9 +102,9 @@ class Experience extends Component {
                                     <input 
                                         className='form-control'
                                         type='text'
-                                        name='company'
-                                        placeholder='Company Name'
-                                        value = {this.state.company}
+                                        name='school'
+                                        placeholder='School Name'
+                                        value = {this.state.school}
                                         onChange={this.onChange}
                                     /> 
                                 </div>
@@ -114,9 +113,20 @@ class Experience extends Component {
                                     <input 
                                         className='form-control'
                                         type='text'
-                                        name='position'
-                                        placeholder='Job Title'
-                                        value={this.state.position}
+                                        name='degree'
+                                        placeholder='Degree'
+                                        value={this.state.degree}
+                                        onChange={this.onChange}
+                                    />
+                                </div>
+
+                                <div className='form-group'>
+                                    <input 
+                                        className='form-control'
+                                        type='text'
+                                        name='major'
+                                        placeholder='Major'
+                                        value={this.state.major}
                                         onChange={this.onChange}
                                     />
                                 </div>
@@ -125,22 +135,9 @@ class Experience extends Component {
                                     <input
                                         className='form-control'
                                         type='month'
-                                        max={this.state.to}
-                                        name='from'
-                                        placeholder='From'
-                                        value={this.state.from}
-                                        onChange={this.onChange}
-                                    />
-                                </div>
-
-                                <div className='form-group'>
-                                    <input
-                                        className='form-control'
-                                        type='month'
-                                        min={this.state.from}
-                                        name='to'
-                                        placeholder='To'
-                                        value={this.state.to}
+                                        name='graduationYr'
+                                        placeholder='Graduation Year'
+                                        value={this.state.graduationYr}
                                         onChange={this.onChange}
                                     />
                                 </div>
@@ -157,13 +154,12 @@ class Experience extends Component {
                                 </div>
 
                                 <div className='form-group'>
-                                    <textarea 
-                                        className='form-control rounded-0'
-                                        // type='textarea'
-                                        rows='4'
-                                        name='desc'
-                                        placeholder='Description/Responsibility'
-                                        value={this.state.desc}
+                                    <input 
+                                        className='form-control'
+                                        type='number'
+                                        name='GPA'
+                                        placeholder='GPA'
+                                        value={this.state.GPA}
                                         onChange={this.onChange}
                                     />
                                 </div>
@@ -180,9 +176,8 @@ class Experience extends Component {
                         </div>
                     </div>
 
-                    {/* <div className="list"> */}
                     <div>
-                        {experiencesList}
+                        {educationsList}
                     </div>
                     <div className="row">
                         <div className='col-md-8 m-auto'>
@@ -190,8 +185,8 @@ class Experience extends Component {
                                 Next: Experience
                             </Link>
                             <span/>
-                            <Link to='/education' className='btn btn-outline-warning float-right' style={{'fontWeight':'bold','color':'black', display: 'inline-block'}}>
-                                Previous: Education
+                            <Link to='/' className='btn btn-outline-warning float-right' style={{'fontWeight':'bold','color':'black', display: 'inline-block'}}>
+                                Previous: Basic Info
                             </Link>
                         </div>
                     </div>
@@ -205,4 +200,4 @@ class Experience extends Component {
     }
 }
 
-export default Experience;
+export default Education;

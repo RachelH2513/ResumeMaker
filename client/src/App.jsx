@@ -5,6 +5,7 @@ import './Stylesheets/App.scss';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import BasicInfo from './Components/BasicInfo';
+import Education from './Components/Education';
 import Experience from './Components/Experience';
 import Preview from './Components/Preview';
 
@@ -16,6 +17,7 @@ class App extends Component{
       <Router>
         <div>
           <Route exact path='/' component={BasicInfo} />
+          <Route path='/education' component={Education} />
           <Route path='/experience' component={Experience} />
           <Route path='/preview' component={Preview} />
         </div>
