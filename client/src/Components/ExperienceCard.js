@@ -25,15 +25,15 @@ const ExperienceCard = (props) => {
     return(
         <div className="card-container" style={{marginBottom:'1em'}}>
             <div style={{display: 'flex', alignItems:'center'}}>
-                <input type="checkbox" name="experience" checked={checked} onChange={onChange}/>
-                <label htmlFor="experience" style={{'fontSize':'medium','fontWeight':'bold', marginBottom:'0'}}>
+                <input type="checkbox" name="experience" id={experience._id} checked={checked} onChange={onChange}/>
+                <label htmlFor={experience._id} style={{'fontSize':'medium','fontWeight':'bold', marginBottom:'0'}}>
                     {/* <pre class="tab"> */}
                     &emsp;{experience.company}&emsp;|&emsp;{experience.position}
                     {/* </pre> */}
                     </label>
                     {/* <br/> */}
-                <span style={{marginLeft:'auto', 'fontWeight':'bold'}}>
-                    {moment(experience.from).format("MMM YY")}&nbsp;-&nbsp;{moment(experience.to).format("MMM YY")}&emsp;{experience.location}
+                <span style={{marginLeft:'auto', 'fontWeight':'bold', 'fontSize': 'small'}}>
+                    {moment(experience.from).format("MMM YYYY")}&nbsp;-&nbsp;{moment(experience.to).format("MMM YYYY")}, {experience.location}
                 </span>
             </div>
             <div>

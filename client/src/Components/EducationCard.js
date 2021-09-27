@@ -24,12 +24,13 @@ const EducationCard = (props) => {
     return(
         <div className="card-container" style={{marginBottom:'1em'}}>
             <div style={{display: 'flex', alignItems:'center'}}>
-                <input type="checkbox" name="education" checked={checked} onChange={onChange}/>
-                <label htmlFor="education" style={{'fontSize':'medium','fontWeight':'bold', marginBottom:'0'}}>
+                <input type="checkbox" name="education" id={education._id} checked={checked} onChange={onChange}/>
+                <label htmlFor={education._id} style={{'fontSize':'medium','fontWeight':'bold', marginBottom:'0'}}>
+                {/* <input type="checkbox" name="education" id={education._id} checked={checked} onChange={onChange}/> */}
                     &emsp;{education.school}
                     </label>
                 <span style={{marginLeft:'auto', 'fontWeight':'bold'}}>
-                    {moment(education.graduationYr).format("MMM YY")}&nbsp;|&nbsp;{education.location}
+                    {moment(education.graduationYr).format("MMM YYYY")}&nbsp;|&nbsp;{education.location}
                 </span>
             </div>
             <div>
