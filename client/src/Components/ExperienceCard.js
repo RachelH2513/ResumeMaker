@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../App.css';
 import moment from 'moment';
 import { data } from "./ResumeContent"
 
 const ExperienceCard = (props) => {
     const  experience  = props.experience;
-    const [checked, setChecked] = React.useState(false);
+    const wasChecked = data.experiences.find(x => x._id === experience._id) != null;
+    const [checked, setChecked] = React.useState(wasChecked);
 
     const onChange = e => {
         if (e.target.checked && !data.experiences.includes(experience)) {
