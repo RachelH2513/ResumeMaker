@@ -18,6 +18,26 @@ class Preview extends Component {
                 <h5>
                     Phone:&nbsp;{data.basicinfo[0].phone} &emsp;E-Mail: &nbsp;{data.basicinfo[0].email}
                 </h5>
+                {/* { data.educations.length !== 0
+                    ? <div>
+                        <h3>
+                            Education
+                        </h3>
+                        {data.educations.map((element, k) =>
+                            <div key={k}>
+
+                                <h5>
+                                    {element.company}
+                                </h5>
+                                <h5>
+                                    {element.position}   
+                                </h5>
+                            </div>
+                        )}
+                      <div/>
+                    
+
+                } */}
                 {data.experiences.length !== 0 
                     ? <div>
                         <h3>

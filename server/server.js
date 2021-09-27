@@ -10,7 +10,7 @@ connectDB();
 
 // use body parser to get data from POST requests
 app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded())
+app.use(express.urlencoded());
 
 // Use API routes from the api folder
 const apis = require("./api/weather_index");
