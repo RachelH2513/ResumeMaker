@@ -3,6 +3,7 @@ const router = express.Router();
 
 const basicinfo_mdl = require('../models/basicinfo_mdl')
 
+// New
 router.post('/', async (req, res) => {
     let firstname = req.body.firstname;
     basicinfo_mdl.create(req.body)
@@ -11,6 +12,7 @@ router.post('/', async (req, res) => {
         .catch(() => res.status(400).json({error: 'Failed..'}));
 })
 
+// Retrive 
 router.get('/', async (req, res) => {
     basicinfo_mdl.findOne()
         .then(basicinfo => res.json(basicinfo))
@@ -18,5 +20,14 @@ router.get('/', async (req, res) => {
             console.log('Error from getting basic info')
         })
 })
+
+// Update 
+router.put('/:id', (req, res) => {
+    basicinfo_mdl.findByIdAndUpdate(req.params.id, req.body)
+      .then(() => res.json({ msg: 'Updated successfully!' }))
+      .catch(() =>
+        res.status(400).json({ error: 'Unable to update the Database' })
+      );
+  });
 
 module.exports = router;

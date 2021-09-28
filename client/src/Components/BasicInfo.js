@@ -8,6 +8,7 @@ class BasicInfo extends Component {
   constructor() {
     super();
     this.state = {
+      _id: '',
       firstname: '',
       lastname: '',
       phone: '',
@@ -22,13 +23,16 @@ class BasicInfo extends Component {
         .get('/basicinfo')
         .then(res => {
             this.setState({
+                _id: res.data._id,
                 firstname: res.data.firstname,
                 lastname: res.data.lastname,
                 phone: res.data.phone,
                 address: res.data.address,
                 email: res.data.email
             })
-            data.basicinfo.push(res.data)
+            if (data.basicinfo.length === 0) {
+                data.basicinfo.push(res.data)
+            }
             console.log(data.basicinfo)
         })
         .catch(err => {
@@ -39,7 +43,7 @@ class BasicInfo extends Component {
   onSubmit = e => {
       e.preventDefault();
 
-      const data = {
+      const newdata = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
         phone: this.state.phone,
@@ -47,16 +51,35 @@ class BasicInfo extends Component {
         email: this.state.email
       }
 
-      axios
-        .post('/basicinfo', data)
-        .then(res => {
-            this.setState({
-                msg: res.data.msg
+      if (this.state._id !== '') { // Update if exist
+        axios
+            .put('/basicinfo/'+this.state._id, newdata)
+            .then(res => {
+                this.setState({
+                    msg: res.data.msg
+                });
+                data.basicinfo[0].firstname = newdata.firstname;
+                data.basicinfo[0].lastname = newdata.lastname;
+                data.basicinfo[0].phone = newdata.phone;
+                data.basicinfo[0].address = newdata.address;
+                data.basicinfo[0].email = newdata.email;
             })
-        })
-        .catch(err => {
-            console.log('Error from CreateBasicInfo');
-        })
+            .catch(err => {
+                console.log("Error in UpdateBasicInfo!");
+            })
+      } else { // New
+          axios
+            .post('/basicinfo', newdata)
+            .then(res => {
+                this.setState({
+                    msg: res.data.msg
+                })
+            })
+            .catch(err => {
+                console.log('Error from CreateBasicInfo');
+            })
+      }
+      
   }
 
   onChange = e => {
@@ -68,13 +91,8 @@ class BasicInfo extends Component {
         <div className="CreateBasicInfo">
             <div className="container">
                 <div className="row">
-                    {/* <div className="col-md-8 m-auto">
-                        <br />
-                        <Link to="/" className="btn btn-outline-warning float-left">
-                            Basic Info
-                        </Link>
-                    </div> */}
                 <div className="col-md-8 m-auto">
+                    <br/>   
                     <h1 className="display-4 text-center">Basic Info</h1>
                     <p className="lead text-center">
                     Create Basic Information
