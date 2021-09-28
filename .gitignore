@@ -31,7 +31,6 @@ client/public/logo192.png
 client/public/manifest.json
 client/public/logo512.png
 client/public/robots.txt
-client/src/index.css
 client/src/logo.svg
 client/src/reportWebVitals.js
 node_modules
