@@ -188,7 +188,7 @@ class Experience extends Component {
                     <div className="row">
                         <div className='col-md-8 m-auto'>
                             <Link to='/experience' className='btn btn-outline-warning float-right' style={{'fontWeight':'bold','color':'black', display: 'inline-block', marginLeft: '10px'}}>
-                                Next: Experience
+                                Next: Project
                             </Link>
                             <span/>
                             <Link to='/education' className='btn btn-outline-warning float-right' style={{'fontWeight':'bold','color':'black', display: 'inline-block'}}>

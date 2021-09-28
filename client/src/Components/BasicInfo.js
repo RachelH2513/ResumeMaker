@@ -14,7 +14,8 @@ class BasicInfo extends Component {
       phone: '',
       address: '',
       email: '',
-      msg: ''
+      msg: '',
+      updated: false    
     };
   }
 
@@ -52,21 +53,24 @@ class BasicInfo extends Component {
       }
 
       if (this.state._id !== '') { // Update if exist
-        axios
-            .put('/basicinfo/'+this.state._id, newdata)
-            .then(res => {
-                this.setState({
-                    msg: res.data.msg
-                });
-                data.basicinfo[0].firstname = newdata.firstname;
-                data.basicinfo[0].lastname = newdata.lastname;
-                data.basicinfo[0].phone = newdata.phone;
-                data.basicinfo[0].address = newdata.address;
-                data.basicinfo[0].email = newdata.email;
-            })
-            .catch(err => {
-                console.log("Error in UpdateBasicInfo!");
-            })
+          if (this.state.updated) { // Update if any change
+            axios
+                .put('/basicinfo/'+this.state._id, newdata)
+                .then(res => {
+                    this.setState({
+                        msg: res.data.msg
+                    });
+                    data.basicinfo[0].firstname = newdata.firstname;
+                    data.basicinfo[0].lastname = newdata.lastname;
+                    data.basicinfo[0].phone = newdata.phone;
+                    data.basicinfo[0].address = newdata.address;
+                    data.basicinfo[0].email = newdata.email;
+                })
+                .catch(err => {
+                    console.log("Error in UpdateBasicInfo!");
+                })
+          }
+        
       } else { // New
           axios
             .post('/basicinfo', newdata)
@@ -84,6 +88,7 @@ class BasicInfo extends Component {
 
   onChange = e => {
     this.setState({[e.target.name]: e.target.value});
+    this.setState({updated: true})
   }
 
   render() {
