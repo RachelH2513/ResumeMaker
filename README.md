@@ -19,10 +19,20 @@ With this resume maker, I can build new resume within 1 minite (with existing da
 
 Other dependencies please refer package.json
 
+# DB configuration
+
+You will need to put an ".env" file in the root containing the credentials to connect
+to a local mongodb:
+```
+DB = mongodb+srv://xxxx
+```
+
 # Launch
 To run this project, install it locally using npm:
 ```
-$ cd ResumeMaker
+$ cd ResumeMaker/client
+$ npm install
+$ cd ..
 $ npm install
 $ npm run dev(using nodemon)
 or $ npm run dev2
@@ -33,6 +43,6 @@ or $ npm run dev2
 * Add new education or choose from list to put into final resume
 * Add new experience or choose from list
 * Create editable resume according to above choice(s).
-## To Do:
+### To Do:
 * Add project and choose from list
 * Add skill or choose from list 
