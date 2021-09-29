@@ -4,7 +4,9 @@ Simple resume maker created with MongoDB, Express, React,Node.js(aka. MERN).
 # Table of Contents
 * [Introduction](#introduction)
 * [Technologies](#technologies)
+* [DB configuration](#db-configuration)
 * [Launch](#launch)
+* [Features](#features)
 
 # Introduction
 With the jaw-dropping but not surprising fact that the average time a recruiter puts their eyes on one resume is 7 seconds, picking experiences/projects to put into a resume, with page limit (usually one), is critical and vary from job to job. For example, my AI project experience won't fit in a full stack engineer job. I used to spend so much unecessary time to refactor my resume by copying, pasting and time-consuming format adjusting etc.
