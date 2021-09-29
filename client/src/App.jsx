@@ -1,7 +1,7 @@
 import { Component } from 'react';
 // import logo from './logo.svg';
 import './Stylesheets/App.scss';
-// import Container from './Components/Container'
+import Container from './Components/Container' // for weather
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import BasicInfo from './Components/BasicInfo';
@@ -13,7 +13,7 @@ import Preview from './Components/Preview';
 class App extends Component{
   render() {
     return(
-      // 
+      // Resume Maker
       <Router>
         <div>
           <Route exact path='/' component={BasicInfo} />
@@ -22,6 +22,11 @@ class App extends Component{
           <Route path='/preview' component={Preview} />
         </div>
       </Router>
+
+      // Weather
+      // <div className="App">
+      //   <Container/>
+      // </div>
     )
   }
 }
