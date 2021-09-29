@@ -2,5 +2,6 @@
 export const data = {
     basicinfo: [],
     educations: [],
-    experiences: []
+    experiences: [],
+    projects: []
 }

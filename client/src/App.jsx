@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import BasicInfo from './Components/BasicInfo';
 import Education from './Components/Education';
 import Experience from './Components/Experience';
+import Project from './Components/Project';
 import Preview from './Components/Preview';
 
 
@@ -19,6 +20,7 @@ class App extends Component{
           <Route exact path='/' component={BasicInfo} />
           <Route path='/education' component={Education} />
           <Route path='/experience' component={Experience} />
+          <Route path='/project' component={Project} />
           <Route path='/preview' component={Preview} />
         </div>
       </Router>

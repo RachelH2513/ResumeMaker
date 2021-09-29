@@ -3,6 +3,7 @@ import React,{ Component } from 'react';
 import PreviewBasicInfo from './PreviewBasicInfo';
 import PreviewEducation from './PreviewEducation';
 import PreviewExperience from './PreviewExperience';
+import PreviewProject from './PreviewProject';
 
 class Preview extends Component {
     // constructor() {
@@ -21,6 +22,9 @@ class Preview extends Component {
 
                 {/* Experience Section */}
                 <PreviewExperience/>
+
+                {/* Project Section */}
+                <PreviewProject/>
                 
             </div>
         )
