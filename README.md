@@ -21,10 +21,9 @@ Other dependencies please refer package.json
 
 # DB configuration
 
-You will need to put an ".env" file in the root containing the credentials to connect
-to a local mongodb:
+You will need to create an ".env" file in the project root directory to contain the credentials for connecting to a MongoDB (in my case MongoDB Atlas), something like this:
 ```
-DB = mongodb+srv://xxxx
+DB = mongodb+srv://<name>:<password>@cluster0.rs9aj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 ```
 
 # Launch
@@ -42,7 +41,9 @@ or $ npm run dev2
 * Add or update basic info
 * Add new education or choose from list to put into final resume
 * Add new experience or choose from list
-* Create editable resume according to above choice(s).
+* Create editable resume with above choice(s).
 ### To Do:
 * Add project and choose from list
 * Add skill or choose from list 
+* Provide delete feature to each section
+* Improve page style
