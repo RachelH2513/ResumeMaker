@@ -19,7 +19,7 @@ const ExperienceCard = (props) => {
             }
             setChecked(false)
         }
-         
+        localStorage.setItem('experiences', JSON.stringify(data.experiences));
     }
 
     return(

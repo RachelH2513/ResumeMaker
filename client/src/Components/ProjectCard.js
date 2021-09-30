@@ -20,7 +20,7 @@ const ProjectCard = (props) => {
             }
             setChecked(false)
         }
-         
+        localStorage.setItem('projects', JSON.stringify(data.projects)); 
     }
 
     return(

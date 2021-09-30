@@ -22,7 +22,7 @@ const EducationCard = (props) => {
             // localStorage.removeItem(education._id)
         }
          
-        localStorage.setItem('education', JSON.stringify(data.educations));
+        localStorage.setItem('educations', JSON.stringify(data.educations));
     }
 
     return(

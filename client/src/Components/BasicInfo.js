@@ -34,6 +34,7 @@ class BasicInfo extends Component {
             if (data.basicinfo.length === 0) {
                 data.basicinfo.push(res.data)
             }
+            // localStorage.setItem('basicinfo', JSON.stringify(data.basicinfo));
             console.log(data.basicinfo)
         })
         .catch(err => {
