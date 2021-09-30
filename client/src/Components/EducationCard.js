@@ -13,7 +13,6 @@ const EducationCard = (props) => {
         if (e.target.checked && !data.educations.includes(education)) { // checked and not in the list 
             data.educations.push(education);
             setChecked(true);
-            // localStorage.setItem(education._id, education._id)
         } else {// remove from list if found
             let i = data.educations.findIndex(x => x._id === education._id);
             if (i !== -1) {
@@ -23,6 +22,7 @@ const EducationCard = (props) => {
             // localStorage.removeItem(education._id)
         }
          
+        localStorage.setItem('education', JSON.stringify(data.educations));
     }
 
     return(

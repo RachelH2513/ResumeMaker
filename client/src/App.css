@@ -29,59 +29,62 @@
       clear: both;
   }
 
-  nav {
+  .nav {
+  /* nav { */
     float: right;
   }
 
-  nav ul {
+  ul {
+  /* nav ul { */
     padding-top: 70px;
     list-style: none;
   }
 
-  nav li {
+  /* nav li { */
+  li {
     display: inline-block;
     margin-left: 60px;
 
     position: relative;
   }
 
-  nav a {
-     color:#194292;
+  /* nav a { */
+  ul a {
+     color:#100e8d;
      text-decoration: none;
      text-transform: uppercase;
      font-weight: 600;
   }
 
-  nav a:hover {
+  /* nav a:hover { */
+  ul a:hover {
     color: black;
     text-decoration: none;
   }
 
-  nav a::before {
+  /* nav a::before { */
+  ul a::before {
     content: '';
     display: block;
     height: 5px;
     background-color: #194292;
 
     position: absolute;
-    top: -10px;
+    top: -30px;
     width: 0%;
 
     transition: all ease-in-out 200ms;
   }
-  
-  /* nav a::after {
-    content:''
-  } */
 
-  nav a:hover::before {
+  /* nav a:hover::before { */
+  ul a:hover::before {
     width: 100%;
   }
 
   .header-img {
-    height: 170px;
-    width: 170px;
-    padding: 10px 0;
+    height: 120px;
+    width: 140px;
+    padding: 0;
   }
   .App-link {
     color: #61dafb;
