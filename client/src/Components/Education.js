@@ -25,7 +25,7 @@ class Education extends Component {
 
     refresh = () => {
         axios
-            .get('/education')
+            .get('/api/education')
             .then(res => {
                 this.setState({
                     educations: res.data
@@ -53,7 +53,7 @@ class Education extends Component {
         }
 
         axios
-            .post('/education', data)
+            .post('/api/education', data)
             .then(res => {
                 this.setState({
                     msg: res.data.msg,

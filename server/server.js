@@ -17,16 +17,16 @@ const apis = require("./api/weather_index");
 app.use("/api", apis);
 
 const basicinfo = require('./api/basicinfo');
-app.use('/basicinfo', basicinfo)
+app.use('/api/basicinfo', basicinfo)
 
 const experience = require('./api/experience');
-app.use('/experience', experience)
+app.use('/api/experience', experience)
 
 const education = require('./api/education');
-app.use('/education', education)
+app.use('/api/education', education)
 
 const project = require('./api/project');
-app.use('/project', project)
+app.use('/api/project', project)
 
 const path = require('path');
 

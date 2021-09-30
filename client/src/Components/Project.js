@@ -26,7 +26,7 @@ class Project extends Component {
 
     refresh = () => {
         axios
-            .get('/project')
+            .get('/api/project')
             .then(res => {
                 this.setState({
                     projects: res.data
@@ -54,7 +54,7 @@ class Project extends Component {
         }
 
         axios
-            .post('/project', data)
+            .post('/api/project', data)
             .then(res => {
                 this.setState({
                     msg: res.data.msg,

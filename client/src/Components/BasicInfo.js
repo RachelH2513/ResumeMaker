@@ -21,7 +21,7 @@ class BasicInfo extends Component {
 
   componentDidMount(){
     axios
-        .get('/basicinfo')
+        .get('/api/basicinfo')
         .then(res => {
             this.setState({
                 _id: res.data._id,
@@ -55,7 +55,7 @@ class BasicInfo extends Component {
       if (this.state._id !== '') { // Update if exist
           if (this.state.updated) { // Update if any change
             axios
-                .put('/basicinfo/'+this.state._id, newdata)
+                .put('/api/basicinfo/'+this.state._id, newdata)
                 .then(res => {
                     this.setState({
                         msg: res.data.msg
@@ -73,7 +73,7 @@ class BasicInfo extends Component {
         
       } else { // New
           axios
-            .post('/basicinfo', newdata)
+            .post('/api/basicinfo', newdata)
             .then(res => {
                 this.setState({
                     msg: res.data.msg
