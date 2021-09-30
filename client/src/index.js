@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import Header from './Components/Header';
+// import Header_Weather from './Components/Header_Weather';
+// import Header from './Components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Adding redux and reducers 
@@ -20,6 +21,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
+    {/* <Header_Weather /> */}
     {/* <Header /> */}
     <App />
   </Provider>,

@@ -92,6 +92,7 @@ class Education extends Component {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-8 m-auto'>
+                            <br/>
                             <h1 className="display-4 text-center">Education</h1>
                             <p className="lead text-center">
                             Add New Education Or Choose From List

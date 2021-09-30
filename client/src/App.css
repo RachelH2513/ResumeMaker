@@ -18,7 +18,71 @@
     font-size: calc(10px + 2vmin);
     color: white;
   }
+
+  /* .Resume-header {
+    background-color: yellow;
+  } */
+
+  .Resume-header::after {
+      content: '';
+      display: table;
+      clear: both;
+  }
+
+  nav {
+    float: right;
+  }
+
+  nav ul {
+    padding-top: 70px;
+    list-style: none;
+  }
+
+  nav li {
+    display: inline-block;
+    margin-left: 60px;
+
+    position: relative;
+  }
+
+  nav a {
+     color:#194292;
+     text-decoration: none;
+     text-transform: uppercase;
+     font-weight: 600;
+  }
+
+  nav a:hover {
+    color: black;
+    text-decoration: none;
+  }
+
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #194292;
+
+    position: absolute;
+    top: -10px;
+    width: 0%;
+
+    transition: all ease-in-out 200ms;
+  }
   
+  /* nav a::after {
+    content:''
+  } */
+
+  nav a:hover::before {
+    width: 100%;
+  }
+
+  .header-img {
+    height: 170px;
+    width: 170px;
+    padding: 10px 0;
+  }
   .App-link {
     color: #61dafb;
   }
@@ -131,4 +195,5 @@
       color: green;
       font-weight: bold;
   }
+
   
