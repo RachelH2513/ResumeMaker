@@ -14,8 +14,8 @@ class Preview extends Component {
     }
     render () {
         return (
-            // <div style={{ margin: "0 auto", marginTop: "20px", maxWidth: "1100px"}} contentEditable="true">
-            <div style={{ margin: "0 auto", marginTop: "20px", maxWidth: "1100px"}}>
+            <div style={{ margin: "0 auto", marginTop: "20px", maxWidth: "1100px"}} contentEditable="true">
+            {/*  <div style={{ margin: "0 auto", marginTop: "20px", maxWidth: "1100px"}}> */}
                 <div>
                     <button type='button' onClick= {this.onClick} className='btn btn-outline-warning float-right' style={{'fontWeight':'bold'}}>Print</button>
                 </div>
