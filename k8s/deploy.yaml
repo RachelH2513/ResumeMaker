@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: default-container
-        image: breehope/resume-maker:v1.0
+        image: breehope/resume-maker:v1.1
         ports: 
         - containerPort: 5000
