@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class Header extends Component {
+class Header_Weather extends Component {
     render() {
         return (
             <section className="header">
@@ -11,4 +11,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default Header_Weather;

@@ -1,0 +1,13 @@
+/client/*
+!/client/build
+
+.DS_Store
+.git
+.vscode
+.gitignore
+.dockerignore
+Dockerfile
+
+package-lock.json
+
+/k8s

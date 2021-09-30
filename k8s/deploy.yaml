@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resume-maker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: resume-maker
+  template:
+    metadata:
+      labels: 
+        app: resume-maker
+    spec:
+      containers:
+      - name: default-container
+        image: breehope/resume-maker:v1.0
+        ports: 
+        - containerPort: 5000
