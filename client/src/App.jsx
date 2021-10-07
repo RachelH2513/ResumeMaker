@@ -6,6 +6,7 @@ import Header from './Components/Header';
 
 import BasicInfo from './Components/BasicInfo';
 import Education from './Components/Education';
+import Skill from './Components/Skill';
 import Experience from './Components/Experience';
 import Project from './Components/Project';
 import Preview from './Components/Preview';
@@ -20,6 +21,7 @@ class App extends Component{
         <div>
           <Route exact path='/' component={BasicInfo} />
           <Route path='/education' component={Education} />
+          <Route path='/skill' component={Skill} />
           <Route path='/experience' component={Experience} />
           <Route path='/project' component={Project} />
           <Route path='/preview' component={Preview} />

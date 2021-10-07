@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 
 import PreviewBasicInfo from './PreviewBasicInfo';
 import PreviewEducation from './PreviewEducation';
+import PreviewSkill from './PreviewSkill';
 import PreviewExperience from './PreviewExperience';
 import PreviewProject from './PreviewProject';
 
@@ -25,7 +26,9 @@ class Preview extends Component {
                 
                 {/* Education Section */}
                 <PreviewEducation/>
-                
+
+                {/* Skill Section */}
+                <PreviewSkill/>
 
                 {/* Experience Section */}
                 <PreviewExperience/>

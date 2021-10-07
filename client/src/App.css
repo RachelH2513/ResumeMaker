@@ -43,7 +43,7 @@
   /* nav li { */
   li {
     display: inline-block;
-    margin-left: 60px;
+    margin-left: 55px;
 
     position: relative;
   }
@@ -122,12 +122,19 @@
     color: rgb(23, 40, 95);
   }
 
-  .Education {
+  /* .Project {
     /* background-color: #2c3e50; */
-    background-image: url("./assets/images/549034.jpg");
+    /* background-image: url("./assets/images/549034.jpg");
     min-height: 100vh;
     color: rgb(23, 40, 95);
-  }
+  } */ */
+
+  /* .Skill {
+    /* background-color: #2c3e50; */
+    /* background-image: url("./assets/images/549034.jpg");
+    min-height: 100vh;
+    color: rgb(23, 40, 95);
+  } */ */
   
   .ShowBookDetails {
     background-color: #2c3e50;

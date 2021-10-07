@@ -17,7 +17,7 @@ class Header extends Component {
                                     {/* <li><a href="/basicinfo"/>Basic Info</li> */}
                                     <li><Link to='/' >Basic Info</Link></li>
                                     <li><Link to="/education" >Education</Link></li>
-                                    {/* <li><a href="#"/>Skill</li> */}
+                                    <li><Link to="/skill">Skill</Link></li>
                                     <li><Link to="/experience">Experience</Link></li>
                                     <li><Link to="/project">Project</Link></li>
                                 </ul>

@@ -191,8 +191,8 @@ class Experience extends Component {
                                 Next: Project
                             </Link>
                             <span/>
-                            <Link to='/education' className='btn btn-outline-warning float-right' style={{'fontWeight':'bold','color':'black', display: 'inline-block'}}>
-                                Previous: Education
+                            <Link to='/skill' className='btn btn-outline-warning float-right' style={{'fontWeight':'bold','color':'black', display: 'inline-block'}}>
+                                Previous: Skill
                             </Link>
                         </div>
                     </div>

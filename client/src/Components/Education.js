@@ -182,8 +182,8 @@ class Education extends Component {
                     </div>
                     <div className="row">
                         <div className='col-md-8 m-auto'>
-                            <Link to='/experience' className='btn btn-outline-warning float-right' style={{'fontWeight':'bold','color':'black', display: 'inline-block', marginLeft: '10px'}}>
-                                Next: Experience
+                            <Link to='/skill' className='btn btn-outline-warning float-right' style={{'fontWeight':'bold','color':'black', display: 'inline-block', marginLeft: '10px'}}>
+                                Next: Skill
                             </Link>
                             <span/>
                             <Link to='/' className='btn btn-outline-warning float-right' style={{'fontWeight':'bold','color':'black', display: 'inline-block'}}>

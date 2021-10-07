@@ -28,6 +28,9 @@ app.use('/api/education', education)
 const project = require('./api/project');
 app.use('/api/project', project)
 
+const skill = require('./api/skill');
+app.use('/api/skill', skill)
+
 const path = require('path');
 
 // If in production, then use static frontend build files.
