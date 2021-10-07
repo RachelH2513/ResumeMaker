@@ -7,16 +7,17 @@ import App from './App';
 // import Header from './Components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Adding redux and reducers 
-import { createStore } from 'redux'
+// // Adding redux and reducers 
+// import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import rootReducer from './reducers'
+// import rootReducer from './reducers'
 
-// Creates our store to use our reducers and the chrome extension to debug the redux store
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+// // Creates our store to use our reducers and the chrome extension to debug the redux store
+// const store = createStore(
+//   rootReducer,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
+import store from './reducers/store'
 
 
 ReactDOM.render(
