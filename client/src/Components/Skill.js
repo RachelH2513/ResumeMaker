@@ -107,7 +107,9 @@ class Skill extends Component {
                     </div>
 
                     <div>
-                        {skillsList}
+                        <ul className='col-md-8 m-auto' style={{paddingTop: 0}}>
+                            {skillsList}
+                        </ul>
                     </div>
                     <div className="row">
                         <div className='col-md-8 m-auto'>

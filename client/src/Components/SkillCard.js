@@ -26,14 +26,16 @@ const SkillCard = (props) => {
     }
 
     return(
-        <div className="card-container" style={{marginBottom:'1em'}}>
-            <div style={{display: 'flex', alignItems:'center'}}>
-                <input type="checkbox" name="skill" id={skill._id} checked={checked} onChange={onChange}/>
-                <label htmlFor={skill._id} style={{'fontSize':'medium','fontWeight':'bold', marginBottom:'0'}}>
-                    &emsp;{skill.skill_name}
-                    </label>
-            </div>
-        </div>
+        <li className="card-container" style={{marginBottom:'1em'}}>
+            {/* <div className="card-container" style={{marginBottom:'1em'}}> */}
+                <div style={{display: 'flex', alignItems:'center'}}>
+                    <input type="checkbox" name="skill" id={skill._id} checked={checked} onChange={onChange}/>
+                    <label htmlFor={skill._id} style={{'fontSize':'medium','fontWeight':'bold', marginBottom:'0'}}>
+                        &emsp;{skill.skill_name}
+                        </label>
+                </div>
+            {/* </div> */}
+        </li>
     )
 };
 
