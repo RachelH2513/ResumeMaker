@@ -180,7 +180,31 @@
     border-radius: 5px;
     overflow: hidden;
   }
-  
+
+  .delete_skill {
+    display: none;
+    margin-left: 10px;
+    margin-right: 0;
+    color: red;
+    font-weight: bold;
+  }
+
+  .edit_skill {
+    display: none;
+    margin-left: auto;
+    color: green;
+    font-weight: bold;
+  }
+  .skill_item:hover {
+    border: 1px dashed #9bdcee;
+  }
+
+  .skill_item:hover .delete_skill,
+  .skill_item:hover .edit_skill {
+    display: block;
+    cursor: pointer;
+  }
+
   .desc {
     height: 130px;
     padding: 10px;

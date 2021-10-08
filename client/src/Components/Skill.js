@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import '../App.css';
 import SkillCard from './SkillCard';
-
+import { data as preview_data} from "./ResumeContent"
 import { Link } from 'react-router-dom';
 
 class Skill extends Component {
@@ -11,11 +11,42 @@ class Skill extends Component {
         this.state = {
             skill_name: '',
             msg: '',
-            skills: []
+            skills: [],
+            skill_id: ''
         };
     }
     componentDidMount() {
         this.refresh();
+        document.addEventListener("skills.deleted", this);
+        document.addEventListener("skills.edit", this);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("skills.deleted", this)
+        document.removeEventListener("skills.edit", this)
+    }
+
+    handleEvent = (event) => {
+        switch (event.type) {
+            case "skills.deleted": {
+                const { detail } = event;
+                this.refresh();
+                this.showMsg(detail.msg);
+                break;
+            }
+            case 'skills.edit': {
+                const { detail } = event;
+                // console.log(detail);
+                this.setState({
+                    skill_name: detail.name,
+                    skill_id: detail.id,
+                })
+                break;
+            }
+
+            default:
+                break;
+        }
     }
 
     refresh = () => {
@@ -41,24 +72,56 @@ class Skill extends Component {
         const data = {
             skill_name: this.state.skill_name
         }
-
-        axios
-            .post('/api/skill', data)
-            .then(res => {
-                this.setState({
-                    msg: res.data.msg,
-                    // Clear all the fields
-                    skill_name: '',
+        if (this.state.skill_id === '') {
+            axios
+                .post('/api/skill', data) // Save new skill
+                .then(res => {
+                    this.setState({
+                        // Clear all the fields
+                        skill_name: '',
+                    });
+                    this.showMsg(res.data.msg)
                 })
-            })
-            .then(() => this.refresh())
-            .catch(err => {
-                console.log('Error from Skill');
-            })
+                .then(() => this.refresh())
+                .catch(err => {
+                    console.log('Error from Skill');
+                })
+        } else {
+            axios
+                .put('/api/skill/'+this.state.skill_id, data) // Update existing skill
+                .then(res => {
+                        let i = preview_data.skills.findIndex(x => x._id === this.state.skill_id);
+                        if (i !== -1) { // if found
+                            preview_data.skills[i].skill_name = data.skill_name;
+                            localStorage.setItem('skills', JSON.stringify(preview_data.skills));
+                        }
+                        this.setState({
+                            // Clear all the fields
+                            skill_name: '',
+                            skill_id: '',
+                        });
+                        this.showMsg(res.data.msg)
+                        this.refresh()
+                })
+                .catch(err => {
+                    console.log("Error: Skill Edit");
+                })
+        }
     }
 
     onClick = () => this.props.history.push('/preview')
 
+    showMsg = msg => {
+        this.setState({
+            msg: msg
+        })
+        setTimeout(() => {
+            this.setState({
+                msg: ''
+            })
+        }, 3000);
+    } 
+    
     render() {
         const skills = this.state.skills;
         // console.log("PrintBook: " + books);
@@ -68,7 +131,7 @@ class Skill extends Component {
             skillsList = "There is no skill added yet!";
         } else {
             skillsList = skills.map((skill, k) =>
-            <SkillCard skill={skill} key={k} />
+            <SkillCard skill={skill} key={k} onDeleted={(event) => console.log(event)}/>
         );
         }
 
@@ -99,7 +162,7 @@ class Skill extends Component {
                                     type="submit"
                                     className='btn btn-outline-info btn-lg btn-block'
                                 />
-                                <p className='msg'>
+                                <p className='msg' style={{ minHeight: "1.5em" }}>
                                     {this.state.msg}
                                 </p>
                             </form>
@@ -107,7 +170,8 @@ class Skill extends Component {
                     </div>
 
                     <div>
-                        <ul className='col-md-8 m-auto' style={{paddingTop: 0}}>
+                        {/* <ul className='col-md-8 m-auto' style={{paddingTop: 0}}> */}
+                        <ul className="card-container" style={{marginBottom:'1em', padding: 0}}>
                             {skillsList}
                         </ul>
                     </div>

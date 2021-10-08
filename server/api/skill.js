@@ -17,4 +17,20 @@ router.get('/', async (req, res) => {
         })
 })
 
+router.delete('/:id', (req, res) => {
+    skill_mdl.findByIdAndRemove(req.params.id, req.body)
+      .then(() => res.json({ msg: 'Skill has been deleted!' }))
+      .catch(err => res.status(404).json({ error: 'No such a skill' }));
+});
+
+router.put('/:id', (req, res) => {
+    skill_mdl.findByIdAndUpdate(req.params.id, req.body)
+        .then((a) => {
+            res.json({ msg: 'Skill has been updated!' })
+        })
+        .catch(() =>
+            res.status(400).json({ error: 'Unable to update the skill' })
+        );
+});
+
 module.exports = router;
