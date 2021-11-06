@@ -4,7 +4,8 @@ import './Stylesheets/App.scss';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Header from './Components/Header';
 
-import BasicInfo from './Components/BasicInfo';
+import BasicInfo from './Components/BasicInfo_hook';
+// import BasicInfo from './Components/BasicInfo';
 import Education from './Components/Education';
 import Skill from './Components/Skill';
 import Experience from './Components/Experience';

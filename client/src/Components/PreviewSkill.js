@@ -1,6 +1,4 @@
 import { data } from './ResumeContent'; 
-import moment from 'moment';
-
 
 const PreviewSkill = () => {
     return (

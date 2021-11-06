@@ -196,11 +196,15 @@
     font-weight: bold;
   }
   .skill_item:hover {
+    /* position:absolute; */
     border: 1px dashed #9bdcee;
+    /* transition: transform 250ms ease-out */
   }
 
   .skill_item:hover .delete_skill,
   .skill_item:hover .edit_skill {
+    /* transform: scale(1.1);
+    transform-origin: center; */
     display: block;
     cursor: pointer;
   }
