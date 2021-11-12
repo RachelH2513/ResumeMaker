@@ -12,7 +12,8 @@
     "client": "cd client && npm run start",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd client/src && npm install && npm run build",
-    "dev2": "npm run server & npm run client"
+    "dev2": "npm run server & npm run client",
+    "build": "react-scripts build"
   },
   "keywords": [],
   "author": "",
