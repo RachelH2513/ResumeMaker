@@ -39,12 +39,11 @@ or $ npm run dev2
 ```
 
 # Features
-* Add or update basic info
-* Add new education or choose from list to put into final resume
-* Add new experience or choose from list
+* Create or update basic info
+* Add new education or choose from existing education list to incorporate in the final resume
+* Add new experience or choose from existing experience list to incorporate in the final resume
+* Add new skill or choose from existing skill list to incorporate in the final resume
+* Add new project or choose from existing project list to incorporate in the final resume
 * Create editable resume with above choice(s).
 ### To Do:
-* Add project and choose from list
-* Add skill or choose from list 
-* Provide delete feature to each section
 * Improve page style
